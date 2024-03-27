@@ -155,7 +155,7 @@ CART KNN SVM  NB DAC AdaBoost RF
         VoR_DC_Clf_RF=ResultAndRanks(VoR_DC_Clf_KNN);
         VoR_DC_Clf_ADB=ResultAndRanks(VoR_DC_Clf_KNN);
              
-    % 6.2 
+% 6.2 
 
     [rank]=Y_rank(M);
     Clf_mean_tra=(KNN_tra+SVM_tra+DT_tra+RF_tra+ADB_tra)/5;
@@ -175,16 +175,16 @@ CART KNN SVM  NB DAC AdaBoost RF
             end
         end
         
-     % 8. 
+% 8. 
         
         Result_Rank=ResultAndRanks(M);
 
 % 9. 
 
-figure
-bar(M')
-ylabel('DoC');
-legend('F1', 'F3', 'N1', 'N2','N3','LSC','T1','MFII');
+        figure
+        bar(M')
+        ylabel('DoC');
+        legend('F1', 'F3', 'N1', 'N2','N3','LSC','T1','MFII');
 
 
 %% 10. 
