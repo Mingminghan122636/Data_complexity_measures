@@ -189,23 +189,23 @@ CART KNN SVM  NB DAC AdaBoost RF
 
 % 10. 
 
-  VoR=[];
-  DoC=[];
-  S_clf=[];
-  P_clf=[];  
-  DC_0_mean=mean(DC_0,2);
-  rand_weights=repmat(rand_weights',size(DC_0,1),1);
-  DC_0_coe=mean(DC_0.*rand_weights,2);
-  AA=rand(1,7);
-  random_weights=repmat(AA,size(DC_0,1),1);
-  DC_0_rnd=mean(DC_0.*random_weights,2);
-  for i=1:4
-                [ VoR_i,DoC_i,Unique_x,mean_var_x] = VORDOC(DC_0_rnd,Clf_mean_tes(:,i));
-                S_clf_i=abs(corr(DC_0_rnd,Clf_mean_tes(:,i),'type','spearman'));
-                P_clf_i=abs(corr(DC_0_rnd,Clf_mean_tes(:,i),'type','pearson'));
-                VoR=[VoR,VoR_i];
-                DoC=[DoC,DoC_i];
-                S_clf=[S_clf,S_clf_i];
-                P_clf=[P_clf,P_clf_i];
-  end
-  M(:,end)=-M(:,end);
+      VoR=[];
+      DoC=[];
+      S_clf=[];
+      P_clf=[];  
+      DC_0_mean=mean(DC_0,2);
+      rand_weights=repmat(rand_weights',size(DC_0,1),1);
+      DC_0_coe=mean(DC_0.*rand_weights,2);
+      AA=rand(1,7);
+      random_weights=repmat(AA,size(DC_0,1),1);
+      DC_0_rnd=mean(DC_0.*random_weights,2);
+      for i=1:4
+                    [ VoR_i,DoC_i,Unique_x,mean_var_x] = VORDOC(DC_0_rnd,Clf_mean_tes(:,i));
+                    S_clf_i=abs(corr(DC_0_rnd,Clf_mean_tes(:,i),'type','spearman'));
+                    P_clf_i=abs(corr(DC_0_rnd,Clf_mean_tes(:,i),'type','pearson'));
+                    VoR=[VoR,VoR_i];
+                    DoC=[DoC,DoC_i];
+                    S_clf=[S_clf,S_clf_i];
+                    P_clf=[P_clf,P_clf_i];
+      end
+      M(:,end)=-M(:,end);
