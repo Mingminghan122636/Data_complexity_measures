@@ -180,20 +180,19 @@ CART KNN SVM  NB DAC AdaBoost RF
         Result_Rank=ResultAndRanks(M);
 
 % 9. 
+    
+    figure
+    bar(M')
+    ylabel('DoC');
+    legend('F1', 'F3', 'N1', 'N2','N3','LSC','T1','MFII');
 
-figure
-bar(M')
-ylabel('DoC');
-legend('F1', 'F3', 'N1', 'N2','N3','LSC','T1','MFII');
 
-
-%% 10. 
+% 10. 
 
   VoR=[];
   DoC=[];
   S_clf=[];
-  P_clf=[];
-  
+  P_clf=[];  
   DC_0_mean=mean(DC_0,2);
   rand_weights=repmat(rand_weights',size(DC_0,1),1);
   DC_0_coe=mean(DC_0.*rand_weights,2);
