@@ -40,7 +40,7 @@ function [DC,DC_mean,DC_pos,DC_neg]=DC_outputs(x,y,K_para) % DC_1 1v1   DC_R 1vR
 % %     T1
      [Data_T1,Data_T1_1vR] = T1_features(x,y);
 % %     MFII
-    [Data_B3,Data_B3_1vR] = BI3_features(x,y,K_para);
+    [Data_MFII，~] = MFII(x,y,K_para);
     % Class distributd metrics    包含三个 multi_IR  lrid_value  ID_HD  ID_TV
      IM_metric=ImbalancedMeasure(train_data);
     
