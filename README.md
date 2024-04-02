@@ -35,6 +35,10 @@
  6. AdaBoost
  7. RF
 
+## Run Demo_script.m for start
+
+ Demo_script.m
+ 
 ## Technical Details and Citations
 
  You can find more details in the paper: [A New Data Complexity Measure for Multi-class Imbalanced Classification Tasks] (which will be released when accepted).
