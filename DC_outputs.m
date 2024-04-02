@@ -6,7 +6,7 @@ function [DC,DC_mean,DC_pos,DC_neg]=DC_outputs(x,y,K_para) % DC_1 1v1   DC_R 1vR
 
     train_data=[x,y];
     
-    % »ñÈ¡Àà±ğĞÅÏ¢ Àà±ğ+Ñù±¾ÊıÁ¿
+    % è·å–ç±»åˆ«ä¿¡æ¯ ç±»åˆ«+æ ·æœ¬æ•°é‡
     y_info=unique(y);
     num=length(y_info);
     class_info=zeros(num,2);
@@ -14,7 +14,7 @@ function [DC,DC_mean,DC_pos,DC_neg]=DC_outputs(x,y,K_para) % DC_1 1v1   DC_R 1vR
         class_info(class_i,1)=y_info(class_i);
         class_info(class_i,2)=sum(y==y_info(class_i));
     end
-    % »ñÈ¡¸÷ÀàµÄÕı¸º±ÈÀı
+    % è·å–å„ç±»çš„æ­£è´Ÿæ¯”ä¾‹
     pos=class_info(:,2)./size(y,1);
     neg=[];
     for tag=1:num
@@ -22,7 +22,7 @@ function [DC,DC_mean,DC_pos,DC_neg]=DC_outputs(x,y,K_para) % DC_1 1v1   DC_R 1vR
     end
     avg=ones(num,1)./num;
     
-    % »ñÈ¡DC ºÍ ¸øÀà±ğDC 
+    % è·å–DC å’Œ ç»™ç±»åˆ«DC 
 % %     F1
     [Data_F1,Data_F1v_1vR] = F1v_features(train_data);
 % %     F2
@@ -39,14 +39,14 @@ function [DC,DC_mean,DC_pos,DC_neg]=DC_outputs(x,y,K_para) % DC_1 1v1   DC_R 1vR
     [Data_LSC,Data_LSC_1vR] = LSC_features(x,y);
 % %     T1
      [Data_T1,Data_T1_1vR] = T1_features(x,y);
-% %     BI3
+% %     MFII
     [Data_B3,Data_B3_1vR] = BI3_features(x,y,K_para);
-    % Class distributd metrics    °üº¬Èı¸ö multi_IR  lrid_value  ID_HD  ID_TV
+    % Class distributd metrics    åŒ…å«ä¸‰ä¸ª multi_IR  lrid_value  ID_HD  ID_TV
      IM_metric=ImbalancedMeasure(train_data);
     
     
     
-    % µÃµ½²»Í¬¸´ÔÓĞÔ¶ÈÁ¿
+    % å¾—åˆ°ä¸åŒå¤æ‚æ€§åº¦é‡
      Outputs=[Data_F1(1),Data_F3,Data_N1,Data_N2,Data_N3,Data_LSC,Data_T1,Data_B3];
      Avg_opt=[sum(avg.*Data_F1v_1vR),sum(avg.*Data_F3_1vR),sum(avg.*Data_N1_1vR),sum(avg.*Data_N2_1vR),sum(avg.*Data_N3_1vR),sum(avg.*Data_LSC_1vR),sum(avg.*Data_T1_1vR),sum(avg.*Data_B3_1vR)];
      pos_opt=[sum(pos.*Data_F1v_1vR),sum(pos.*Data_F3_1vR),sum(pos.*Data_N1_1vR),sum(pos.*Data_N2_1vR),sum(pos.*Data_N3_1vR),sum(pos.*Data_LSC_1vR),sum(pos.*Data_T1_1vR),sum(pos.*Data_B3_1vR)];
@@ -62,5 +62,5 @@ function [DC,DC_mean,DC_pos,DC_neg]=DC_outputs(x,y,K_para) % DC_1 1v1   DC_R 1vR
 % %     DC_pos=[DC_pos;pos_opt];
 % %     DC_neg=[DC_neg;neg_opt];
     
-    % ½á¹ûÆÀ¹À
+    % ç»“æœè¯„ä¼°
 end
