@@ -37,7 +37,8 @@
 
 ## Run Demo_script.m for start
 
- Demo_script.m
+ 1. Demo_script.m
+ 2. All related datasets, results, and functions can be found in branches.
  
 ## Technical Details and Citations
 
